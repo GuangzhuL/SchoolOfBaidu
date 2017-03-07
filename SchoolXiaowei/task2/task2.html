@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>网站一级标题</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei","SimSun" ;
+        }
+        .all {
+            width: 1282px;
+            background-color: #DEDEDE;
+        }
+        .header {
+            height: 60px;
+            background: #333333 url("images/baidulogo.jpg") 40px 0px no-repeat;
+            overflow: hidden;
+        }
+        .header ul {
+            width: 358px;
+            float: right;
+        }
+        .header ul li {
+            float: left;
+            padding-right:25px;
+        }
+        .header ul li:last-child {
+            padding-right:0;
+        }
+        .header ul li a {
+            text-decoration: none;
+            color: #FFF8E8 ;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .header li:last-child a {
+            color: #9FA4AA;
+        }
+        article, .img, .nav{
+            width: 1180px;
+            padding: 25px 20px;
+            background-color:#fff;
+            margin: 20px;
+            box-shadow: 2px 2px 2px #848484;
+        }
+        .article1 {
+            height: 658px;
+        }
+        h2,span {
+            color: #605E69;
+        }
+        p {
+            text-indent: 2em;
+        }
+        .article2 {
+            height: 648px;
+        }
+        .project li{
+            list-style: none;
+        }
+        .img {
+            height: 1492px;
+        }
+        .imgBox {
+            position: relative;
+            width: 100px;
+            height: 80px;
+            padding: 33px 10px 10px;
+            border: 1px solid #CECECE;
+            margin-top:15px;
+            margin-left:60px;
+        }
+        .imgBox span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: black;
+            width: 100%;
+            line-height: 33px;
+            text-align: center;
+        }
+        .imgBox img {
+            width: 100%;
+            height: 100%;
+        }
+        .article3 {
+            height: 420px;
+        }
+        ol li {
+            line-height: 28px;
+            font-weight:700;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #CCCCCC;
+        }
+        caption {
+            text-align: left;
+            font-weight: 700;
+        }
+
+        thead {
+            background-color: black;
+            color: white;
+            text-align: left;
+        }
+        thead,th,td {
+            border: 1px solid #CCCCCC;
+        }
+        tfoot {
+            background-color: #CCCCCC;
+        }
+        .nav h1 {
+            padding-left: 11px;
+            border-left: 3px solid #CDCDCD;
+        }
+        .nav label {
+            display: inline-block;
+            width: 200px;
+            padding-right: 20px;
+            text-align: right;
+        }
+        .nav div {
+            padding-left: 289px;
+            margin: 11px 0;
+        }
+        .nav p {
+            font-size: 12px;
+            color: #9D9E96;
+            padding-left: 489px;
+        }
+        .nav .submit {
+            width: 100%;
+            height: 38px;
+            background-color: #3355D0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .nav .describe {
+            float: left;
+        }
+        footer {
+            background-color: #000000;
+            color: #FFFBF8;
+            height: 49px;
+            text-align: center;
+            padding-top: 22px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <header class="header">
+            <nav>
+                <ul>
+                    <li><a href="#">导航链接一</a></li>
+                    <li><a href="#">导航链接二</a></li>
+                    <li><a href="#">导航链接三</a></li>
+                    <li><a href="#">导航链接四</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article class="article1">
+                <h1>文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                <span>文章作者</span>&nbsp;<span>文章发表时间</span>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://baidu.com">这里有一个链接http://baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p>
+                <image src="images/jianpan.jpg"></image>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://baidu.com" target="_blank">点击这个链接会去到另外一个页面</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。<br></p>
+            </article>
+            <article class="article2">
+                <h1>另外一篇文章的一级标题</h1>
+                <h2>另外一篇文章的二级标题</h2>
+                <span>文章作者</span>&nbsp;<span>文章发表时间</span>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://baidu.com">这里有一个链接http://baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p>
+                <image src="images/jianpan.jpg"></image>
+                <nav>
+                    <ul class="project">
+                        <li>列表项目一</li>
+                        <li>列表项目二</li>
+                        <li>列表项目三</li>
+                    </ul>
+                </nav>
+            </article>
+            <div class="img">
+                <h1>图片</h1>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+                <div class="imgBox">
+                    <span>好看的图片</span>
+                    <img src="images/jianpan.jpg" alt="">
+                </div>
+
+
+            </div>
+            <article class="article3">
+                <h1>最后一篇文章一级标题</h1>
+                <h2>最后一篇文章二级标题</h2>
+                <span>文章作者</span>&nbsp;<span>文章发表时间</span>
+                <ol>
+                    <li>排名1</li>
+                    <li>排名2</li>
+                    <li>排名3</li>
+                </ol>
+
+                <table>
+                    <caption>下面是一个表格，加上borser="1"会让我的表格看起来像个表格,你们写html的时候不要添加</caption>
+                    <thead>
+                        <tr>
+                            <th>表头</th>
+                            <th>表头</th>
+                            <th>表头</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>表内容单元格</td>
+                            <td>表内容单元格</td>
+                            <td><a href="#">操作</a></td>
+                        </tr>
+                        <tr>
+                            <td>表内容单元格</td>
+                            <td>表内容单元格</td>
+                            <td><a href="#">操作</a></td>
+                        </tr>
+                        <tr>
+                            <td>表内容单元格</td>
+                            <td>表内容单元格</td>
+                            <td><a href="#">操作</a></td>
+                        </tr>
+                        <tr>
+                            <td>表内容单元格</td>
+                            <td>表内容单元格</td>
+                            <td><a href="#">操作</a></td>
+                        </tr>
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>总计</td>
+                            <td colspan="2">1000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </article>
+            <nav class="nav">
+                    <h1>这是一个侧栏的标题，这里就是一个标题</h1>
+                <div><label for="email">请输入一个邮箱地址</label>
+                    <input type="text" id="email" value="这里是一个文本框">
+                </div>
+                <p>邮箱地址请按照要求格式输入</p>
+                <div><label for="password">请输入密码</label>
+                    <input type="text" id="password" value="这里是一个文本框">
+                </div>
+                <div><label for="repassword">请重复密码</label>
+                    <input type="text" id="repassword" value="这里是一个文本框">
+                </div>
+                <p>密码为6-16位数字</p>
+                <div><label for="repassword">请重复密码</label>
+                    <input type="text" id="repassword" value="这里是一个文本框">
+                </div>
+                <div><label for="sex">性别</label>
+                    <input type="radio" name="sex" id="sex" checked>男 <input type="radio" name="sex"> 女
+                </div>
+                <div>
+                    <label>城市</label>
+                    <select>
+                        <option value="">北京</option>
+                        <option value="">上海</option>
+                    </select>
+                </div>
+                <div>
+                    <label>爱好</label>
+                    <input type="checkbox">运动 <input type="checkbox">艺术 <input type="checkbox">科学
+                </div>
+                <div>
+                    <label for="" class="describe">个人描述</label>
+                    <textarea name="" id="" cols="90" rows="10">这是一个多行描述框，请输入你的个人描述</textarea>
+                </div>
+                    <input type="submit" value="确认提交" class="submit">
+            </nav>
+        </main>
+        <footer>
+            版权所有&copy;
+        </footer>
+    </div>
+</body>
+</html>
