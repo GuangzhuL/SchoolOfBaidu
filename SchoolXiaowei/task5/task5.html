@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>网站一级标题</title>
     <style>
         body {
-            font-family: "Microsoft YaHei","SimSun" ;
+            font-family: "Microsoft YaHei", "SimSun";
         }
         /*对于浮动来说，如果要浮动的父元素是一个有一定宽度的盒子，那么在我们拉动浏览器的时候，因为浮动的子盒子是以父盒子为依据的，所以我们浏览器界面缩小的时候，是一个不断去埋没有固定的宽度的盒子的过程，所以此时此刻的浮动元素也会跟着被浏览器拖动的界面所埋没，从而看不到。但是当我们为父盒子加上了宽度是100%的时候就不一样了，这个时候无论浏览器界面如何缩小拖动，都可以让浮动的元素贴近浏览器的界面（这里是右边），因为父盒子永远以浏览器的界面为100%，所以我们将会一直能看到浮动的元素出现在界面上。*/
         .all {
             width: 100%;
-            background-color: #DEDEDE;
+            background-color: #dedede;
         }
         .header {
             height: 60px;
-            background: #333333 url("images/baidulogo.jpg") 40px 0px no-repeat;
-            overflow: hidden;
+            background: #333 url(images/baidulogo.jpg) 40px 0 no-repeat;
         }
         .header ul {
-            width: 358px;
             float: right;
+            width: 358px;
         }
         .header ul li {
             float: left;
@@ -29,25 +29,28 @@
         .header ul li:last-child {
             padding-right:0;
         }
-        .header ul li a {
-            text-decoration: none;
-            color: #FFF8E8 ;
+        .header  li a {
             font-size: 12px;
             line-height: 20px;
+            text-decoration: none;
+            color: #fff8e8 ;
         }
         .header li:last-child a {
-            color: #9FA4AA;
+            color: #9fa4aa;
         }
-        article, .img, aside{
+        article,
+        .img,
+        aside {
             padding: 25px 20px;
-            background-color:#fff;
             margin: 20px;
             box-shadow: 2px 2px 2px #848484;
+            background-color: #fff;
         }
         .article1 {
             height: 700px;
         }
-        h2,span {
+        h2,
+        span {
             color: #605E69;
         }
         main p {
@@ -67,7 +70,7 @@
             width: 100px;
             height: 80px;
             padding: 33px 10px 10px;
-            border: 1px solid #CECECE;
+            border: 1px solid #cecece;
             margin-top:15px;
             margin-left:60px;
         }
@@ -75,10 +78,10 @@
             position: absolute;
             top: 0;
             left: 0;
-            color: black;
             width: 100%;
             line-height: 33px;
             text-align: center;
+            color: black;
         }
         .imgBox img {
             width: 100%;
@@ -89,12 +92,12 @@
         }
         ol li {
             line-height: 28px;
-            font-weight:700;
+            font-weight: 700;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            border: 1px solid #CCCCCC;
+            border: 1px solid #ccc;
         }
         caption {
             text-align: left;
@@ -102,55 +105,57 @@
         }
 
         thead {
-            background-color: black;
-            color: white;
             text-align: left;
+            background-color: black;
+            color: #fff;
         }
-        thead,th,td {
-            border: 1px solid #CCCCCC;
+        thead,
+        th,
+        td {
+            border: 1px solid #ccc;
         }
         tfoot {
-            background-color: #CCCCCC;
+            background-color: #ccc;
         }
         form {
             border: none;
         }
         form h3 {
             padding-left: 11px;
-            border-left: 3px solid #CDCDCD;
+            border-left: 3px solid #cdcdcd;
         }
         form label {
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
             display: inline-block;
+            cursor: pointer;
             width: 112px;
             padding-right: 20px;
             margin: 2px 0;
+            font-size: 14px;
+            font-weight: 700;
             text-align: right;
         }
         form .tips {
+            padding-left: 137px;
             font-size: 12px;
             color: #9D9E96;
-            padding-left: 137px;
         }
         form .submit {
+            cursor: pointer;
             width: 100%;
             height: 38px;
-            background-color: #3355D0;
             border-radius: 8px;
-            cursor: pointer;
+            background-color: #3355d0;
         }
         form .describe {
             vertical-align: top;
         }
         footer {
-            background-color: #000000;
-            color: #FFFBF8;
             height: 49px;
-            text-align: center;
             padding-top: 22px;
             font-size: 12px;
+            text-align: center;
+            color: #fffbf8;
+            background-color: #000;
         }
         /*这里开始进行第二轮样式的布局*/
         aside {
@@ -199,7 +204,7 @@
                     <p class="tips">密码为6-16位数字</p>
                     <p>
                         <label for="sex">性别</label>
-                        <input type="radio" name="sex" id="sex" checked>男 <input type="radio" name="sex"> 女
+                        <input type="radio" name="sex" id="sex" checked />男 <input type="radio" name="sex" /> 女
                     </p>
                     <p>
                         <label>城市</label>
@@ -210,13 +215,13 @@
                     </p>
                     <p>
                         <label>爱好</label>
-                        <input type="checkbox">运动 <input type="checkbox">艺术 <input type="checkbox">科学
+                        <input type="checkbox" />运动 <input type="checkbox" />艺术 <input type="checkbox" />科学
                     </p>
                     <p>
                         <label for="" class="describe">个人描述</label>
                         <textarea name="" id="" cols="20" rows="5" placeholder="这是一个多行描述框，请输入你的个人描述"></textarea>
                     </p>
-                    <input type="submit" value="确认提交" class="submit">
+                    <input type="submit" value="确认提交" class="submit" />
                 </div>
             </form>
         </aside>
@@ -227,13 +232,13 @@
                 <h2>文章二级标题</h2>
                 <span>文章作者</span>&nbsp;<span>文章发表时间</span>
                 <section>
-                    <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://baidu.com">这里有一个链接http://baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p>
+                    <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com">这里有一个链接http://www.baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p>
                 </section>
                 <section>
                     <img src="images/jianpan.jpg">
                 </section>
                 <section>
-                    <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://baidu.com" target="_blank">点击这个链接会去到另外一个页面</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p>
+                    <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com" target="_blank">点击这个链接会去到另外一个页面</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p>
                 </section>
 
 
@@ -242,7 +247,7 @@
                 <h1>另外一篇文章的一级标题</h1>
                 <h2>另外一篇文章的二级标题</h2>
                 <span>文章作者</span>&nbsp;<span>文章发表时间</span>
-                <section><p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://baidu.com">这里有一个链接http://baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p></section>
+                <section><p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com">这里有一个链接http://baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。</p></section>
                 <section>
                     <img src="images/jianpan.jpg">
                 </section>
@@ -253,7 +258,6 @@
                         <li>列表项目三</li>
                     </ul>
                 </section>
-
             </article>
             <div class="img">
                 <h1>图片</h1>
@@ -313,7 +317,7 @@
                 </section>
                 <section>
                     <table>
-                        <caption>下面是一个表格，加上borser="1"会让我的表格看起来像个表格,你们写html的时候不要添加</caption>
+                        <caption>下面是一个表格，加上border="1"会让我的表格看起来像个表格,你们写html的时候不要添加</caption>
                         <thead>
                         <tr>
                             <th>表头</th>
