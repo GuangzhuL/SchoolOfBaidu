@@ -1,0 +1,15 @@
+{
+  "name": "task9",
+  "version": "1.0.0",
+  "description": "this is task9",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "guangzhul",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0"
+  }
+}

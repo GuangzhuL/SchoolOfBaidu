@@ -1,0 +1,756 @@
+body {
+  margin: 0 auto;
+  font-family: "Microsoft YaHei";
+}
+header {
+  position: relative;
+  width: 100%;
+  height: 57px;
+  background-color: #2189bf;
+}
+header .big-square {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+}
+header .big-square .small-square {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-top: 3px solid #2189bf;
+  border-left: 3px solid #2189bf;
+  background-color: #fff;
+}
+header input {
+  position: absolute;
+  top: 10px;
+  right: 156px;
+  width: 313px;
+  height: 28px;
+  border: 0;
+  padding: 0;
+  padding-left: 16px;
+  border-radius: 14px;
+  font-size: 28px;
+}
+header .fa.fa-user {
+  position: absolute;
+  top: 10px;
+  right: 92px;
+  font-size: 12px;
+  line-height: 28px;
+  letter-spacing: 2px;
+  color: #fff;
+  cursor: pointer;
+}
+header .fa.fa-user:hover {
+  color: #111;
+}
+aside {
+  float: left;
+  width: 261px;
+  height: 1213px;
+  background-color: #2a2e3d;
+}
+aside .top {
+  height: 150px;
+}
+aside .top .wrap-top1 {
+  position: relative;
+  height: 50px;
+  padding: 20px 0 20px 45px;
+}
+aside .top .wrap-top1 .favicon-out {
+  width: 58px;
+  height: 58px;
+  border-radius: 29px;
+}
+aside .top .wrap-top1 .favicon-out .favicon-inner {
+  width: 47px;
+  height: 47px;
+  border-radius: 23px;
+  margin: 5px;
+  background-color: #b9babe;
+}
+aside .top .wrap-top1 p {
+  position: absolute;
+  top: 44px;
+  right: 90px;
+  font-size: 16px;
+  font-family: "SimSun";
+  font-weight: 700;
+  color: #fff;
+}
+aside .top .wrap-top2 {
+  height: 60px;
+  padding: 6px 0 19px 60px;
+  font-family: "SimSun";
+  font-size: 16px;
+  color: #5d6b7f;
+}
+aside .top .wrap-top2 p {
+  width: 34px;
+  height: 35px;
+}
+aside .top .wrap-top2 p:first-child {
+  float: left;
+  padding-right: 30px;
+  border-right: 1px solid #5d6b7f;
+}
+aside .top .wrap-top2 p:last-child {
+  float: left;
+  padding-left: 34px;
+}
+aside .middle {
+  position: relative;
+  height: 191px;
+  font-family: "Simsun";
+  font-size: 12px;
+  background-color: #383d4e;
+}
+aside .middle p,
+aside .middle span {
+  cursor: pointer;
+}
+aside .middle span:hover,
+aside .middle p:hover {
+  color: #fff !important;
+}
+aside .middle .fa-folder-open {
+  padding: 14px 0 19px 45px;
+  color: #fff;
+}
+aside .middle .fa.fa-folder.first,
+aside .middle .fa.fa-folder.second {
+  padding: 0 0 18px 85px;
+  color: #6e8095;
+}
+aside .middle .sub1,
+aside .middle .sub2,
+aside .middle .sub3 {
+  position: absolute;
+  left: 68px;
+  font-weight: 700;
+  color: #6e8095;
+}
+aside .middle .sub1 {
+  top: 46px;
+}
+aside .middle .sub2 {
+  top: 76px;
+  color: #fff;
+}
+aside .middle .fa.fa-folder.second {
+  color: #fff;
+}
+aside .middle .fa.fa-file-text-o.first,
+aside .middle .fa.fa-file-text-o.second {
+  padding: 0 0 18px 99px;
+  color: #fff;
+}
+aside .middle .fa.fa-file-text-o.second {
+  color: #6e8095;
+}
+aside .middle .fa.fa-folder.third {
+  padding: 0 0 0 85px;
+  color: #6e8095;
+}
+aside .middle .sub3 {
+  top: 165px;
+}
+aside .bottom {
+  height: 870px;
+  color: #6e8095;
+}
+aside .bottom ul {
+  width: 72px;
+  height: 205px;
+  padding: 16px 0 0 45px;
+  font-family: "SimHei";
+  font-size: 12px;
+  cursor: pointer;
+}
+aside .bottom ul li {
+  padding-bottom: 37px;
+}
+aside .bottom ul li:hover {
+  color: #fff;
+}
+main {
+  margin-left: 261px;
+  width: 100%;
+  height: 1211px;
+  background-color: #eeedec;
+}
+main h1 {
+  height: 24px;
+  font-size: 12px;
+  padding-left: 22px;
+  padding-top: 17px;
+  color: #b4b4b4;
+  background-color: #eeeeed;
+}
+main .catalogue {
+  height: 31px;
+  background-color: #fff;
+}
+main .catalogue ul {
+  height: 31px;
+  padding-left: 29px;
+}
+main .catalogue ul li {
+  float: left;
+  padding-right: 7px;
+  font-family: "SimHei";
+  font-size: 12px;
+  line-height: 31px;
+  color: #b4b4b4;
+  cursor: pointer;
+}
+main .catalogue ul li:first-child {
+  padding-left: 29px;
+  padding-right: 13px;
+}
+main .catalogue ul li:last-child {
+  color: #6898c2;
+}
+main .catalogue ul li:hover {
+  color: #6898c2;
+}
+main .content {
+  padding: 19px 59px 154px;
+  width: 903px;
+  height: 1010px;
+  background-color: #eeeeed;
+}
+main .content .choose {
+  height: 86px;
+  color: #b4b4b4;
+  font-family: "SimHei";
+  font-size: 12px;
+  background-color: #fff;
+  color: #6e8095;
+}
+main .content .choose form {
+  position: relative;
+  width: 845px;
+  height: 56px;
+  padding: 9px 0 21px 29px;
+}
+main .content .choose form label {
+  padding-right: 16px;
+}
+main .content .choose form select {
+  margin-top: 6px;
+}
+main .content .choose form input,
+main .content .choose form select {
+  height: 23px;
+  padding-left: 8px;
+}
+main .content .choose form #query {
+  width: 72px;
+}
+main .content .choose form .buy {
+  padding-left: 39px;
+}
+main .content .choose form #buy {
+  width: 118px;
+}
+main .content .choose form .date {
+  padding-left: 60px;
+}
+main .content .choose form #date {
+  width: 121px;
+}
+main .content .choose form .consume {
+  padding-left: 15px;
+}
+main .content .choose form #consume {
+  width: 70px;
+  word-spacing: 4px;
+}
+main .content .choose form .sell {
+  padding-left: 174px;
+}
+main .content .choose form #sell {
+  width: 118px;
+}
+main .content .choose form .human {
+  padding-left: 60px;
+  word-spacing: 4px;
+}
+main .content .choose form #human {
+  width: 70px;
+}
+main .content .choose form .deal {
+  padding-left: 15px;
+}
+main .content .choose form #deal {
+  width: 134px;
+  word-spacing: 4px;
+}
+main .content .choose form button {
+  position: absolute;
+  top: 35px;
+  right: 31px;
+  width: 51px;
+  height: 26px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #388ac1;
+  color: #fff;
+  cursor: pointer;
+}
+main .content .choose form button:hover {
+  background-color: #111;
+}
+main .content .choose form img {
+  position: absolute;
+  top: 15px;
+  left: 368px;
+  cursor: pointer;
+}
+main .content .time {
+  height: 63px;
+  margin-top: 8px;
+}
+main .content .time li {
+  float: left;
+  width: 110px;
+  height: 65px;
+  border-top: 1px solid #b4b4b4;
+  border-left: 1px solid #b4b4b4;
+  margin-right: 5px;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+}
+main .content .time li p:first-child {
+  font-size: 12px;
+  line-height: 32px;
+  color: #333332;
+}
+main .content .time li p:last-child {
+  font-size: 21px;
+  color: #ec6500;
+}
+main .content .time li p:last-child span {
+  font-size: 16px;
+  color: #b4b4b4;
+}
+main .content .time .first,
+main .content .time .last {
+  width: 30px;
+  font-size: 20px;
+  line-height: 63px;
+  color: #b4b4b4;
+}
+main .content .time .current {
+  height: 62px;
+  border-top: 4px solid #4388c8;
+}
+main .content .time .history {
+  width: 133px;
+  margin-right: 0;
+  line-height: 53px;
+  font-size: 12px;
+}
+main .content .time .history span {
+  font-size: 24px;
+  padding: 17px 11px 0 16px;
+  color: #4388c8;
+}
+main .content .time li:hover {
+  height: 62px;
+  border-top: 4px solid #4388c8;
+}
+main .content .time .first:hover,
+main .content .time .last:hover {
+  background-color: #333332;
+  border-top: 1px solid #b4b4b4;
+  border-left: 1px solid #b4b4b4;
+}
+main .content .statistics h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 21px;
+  margin-bottom: 6px;
+}
+main .content .statistics ul {
+  overflow: hidden;
+}
+main .content .statistics li {
+  position: relative;
+  float: left;
+  width: 197px;
+  height: 71px;
+  font-size: 12px;
+  border: 1px solid #b4b4b4;
+  margin-right: 31px;
+  background-color: #fff;
+}
+main .content .statistics li p:first-child {
+  padding: 21px 0 15px 7px;
+}
+main .content .statistics li p:last-child {
+  padding-left: 7px;
+  color: #b4b4b4;
+}
+main .content .statistics li span {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  display: block;
+  width: 59px;
+  height: 46px;
+}
+main .content .statistics .first {
+  border-left: 4px solid #43b29d;
+}
+main .content .statistics .first span {
+  background-color: #43b29d;
+}
+main .content .statistics .second {
+  border-left: 4px solid #398bc2;
+}
+main .content .statistics .second span {
+  background-color: #398bc2;
+}
+main .content .statistics .third {
+  border-left: 4px solid #cf4a36;
+}
+main .content .statistics .third span {
+  background-color: #cf4a36;
+}
+main .content .statistics .fourth {
+  margin-right: 0;
+  border-left: 4px solid #e2cd47;
+}
+main .content .statistics .fourth span {
+  background-color: #e2cd47;
+}
+main .content .project {
+  overflow: hidden;
+  height: 357px;
+  margin-top: 14px;
+}
+main .content .project .project1 {
+  position: relative;
+  float: left;
+  width: 531px;
+  height: 357px;
+  border-radius: 4px;
+  border: 2px solid #d9d8da;
+  background-color: #fff;
+}
+main .content .project .project1 ul {
+  overflow: hidden;
+}
+main .content .project .project1 li {
+  float: left;
+  width: 85px;
+  height: 27px;
+  margin-right: 4px;
+  margin-top: 12px;
+  line-height: 27px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #eeeeed;
+  cursor: pointer;
+}
+main .content .project .project1 li:hover {
+  background-color: #fff;
+  border: 2px solid #eeeeed;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 0;
+}
+main .content .project .project1 .current {
+  height: 25px;
+  margin-left: 20px;
+  border: 2px solid #eeeeed;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  background-color: #fff;
+}
+main .content .project .project1 .wrap {
+  width: 488px;
+  height: 249px;
+  margin-left: 20px;
+  border-radius: 0 4px 4px 4px;
+  border: 2px solid #eeeeed;
+}
+main .content .project .project1 table {
+  width: 405px;
+  height: 148px;
+  border-collapse: collapse;
+  margin: 29px 0 0 58px;
+}
+main .content .project .project1 table td {
+  width: 84px;
+  height: 29px;
+  font-size: 12px;
+  line-height: 29px;
+  text-align: left;
+  padding-left: 18px;
+  border: 1px solid #eeeeed;
+}
+main .content .project .project1 .mask {
+  width: 85px;
+  height: 3px;
+  position: absolute;
+  top: 79px;
+  left: 22px;
+  background-color: #fff;
+}
+main .content .project .project2 {
+  position: relative;
+  width: 351px;
+  height: 356px;
+  font-size: 12x;
+  margin-left: 548px;
+  border: 2px solid #d9d8da;
+  border-radius: 4px;
+  background-color: #fff;
+}
+main .content .project .project2 h2 {
+  padding: 6px 0 12px 54px;
+  color: #d9d8da;
+}
+main .content .project .project2 h3 {
+  padding: 0 0 12px 54px;
+  color: #000;
+}
+main .content .project .project2 .p1,
+main .content .project .project2 .p2 {
+  float: left;
+  width: 126px;
+  height: 50px;
+  margin-left: 40px;
+  border-top: 1px solid #eeeeed;
+  border-left: 0;
+  color: #d9d8da;
+}
+main .content .project .project2 .p1 {
+  border-right: 1px solid #eeeeed;
+}
+main .content .project .project2 p .first,
+main .content .project .project2 p .second {
+  padding-left: 14px;
+  color: #d9d8da;
+}
+main .content .project .project2 .p2 {
+  width: 184px;
+  margin-left: 0;
+  border-right: 0;
+}
+main .content .project .project2 p span {
+  display: inline-block;
+  padding: 4px 0 4px 14px;
+  color: #000;
+}
+main .content .project .project2 .clear {
+  overflow: hidden;
+}
+main .content .project .project2 .p3 {
+  width: 311px;
+  margin-left: 40px;
+  padding-left: 4px;
+  border-top: 1px solid #eeeeed;
+  font-size: 12px;
+  line-height: 24px;
+  color: #d9d8da;
+}
+main .content .project .project2 textarea {
+  height: 106px;
+  font-size: 12px;
+  text-align: left;
+  margin-left: 40px;
+  border: 0;
+  resize: none;
+}
+main .content .project .project2 .check {
+  width: 275px;
+  padding-top: 6px;
+  margin-left: 36px;
+  font-size: 12px;
+  color: #d9d8da;
+  border-top: 1px solid #eeeeed;
+}
+main .content .project .project2 .check input {
+  margin-right: 6px;
+  margin-bottom: 0;
+  margin-top: 0;
+  vertical-align: top;
+}
+main .content .project .project2 .check button {
+  float: right;
+  width: 49px;
+  height: 26px;
+  font-size: 12px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  background-color: #388bc2;
+  cursor: pointer;
+}
+main .content .project .project2 .check button:hover {
+  background-color: #d9d8da;
+}
+main .content .bottom {
+  width: 887px;
+  height: 758px;
+}
+main .content .calendar {
+  float: left;
+  width: 348px;
+  height: 356px;
+  background-color: #fff;
+  border: 2px solid #d9d8da;
+  border-radius: 3px;
+}
+main .content .calendar select,
+main .content .calendar button {
+  float: left;
+  height: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+main .content .calendar select {
+  margin-right: 6px;
+}
+main .content .calendar button {
+  cursor: pointer;
+}
+main .content .calendar .current {
+  margin-left: 20px;
+}
+main .content .calendar .clear {
+  overflow: hidden;
+}
+main .content .calendar ul {
+  width: 305px;
+  height: 31px;
+  margin-left: 20px;
+  border-top: 1px solid #a9cfec;
+  border-bottom: 1px solid #d9d8da;
+}
+main .content .calendar ul li {
+  float: left;
+  text-align: center;
+  line-height: 31px;
+  padding: 0 15px 0 12px;
+}
+main .content .calendar ul .sunday {
+  padding-right: 0;
+}
+main .content .calendar .number {
+  width: 315px;
+  height: 241px;
+  padding-left: 20px;
+}
+main .content .calendar span {
+  float: left;
+  display: block;
+  width: 40px;
+  height: 26px;
+  padding: 12px 0 6px 0;
+  font-size: 12px;
+  text-align: center;
+}
+main .content .calendar .stu {
+  padding-left: 170px;
+}
+main .content .calendar .border {
+  width: 38px;
+  height: 22px;
+  border: 1px solid #f7d156;
+}
+main .content .brand {
+  width: 532px;
+  height: 356px;
+  margin-left: 367px;
+  margin-top: 9px;
+  border: 2px solid #d9d8da;
+  border-radius: 4px;
+  background-color: #fff;
+}
+main .content .brand table {
+  margin: 16px 40px 0 42px;
+  border-collapse: collapse;
+  text-align: center;
+}
+main .content .brand table th,
+main .content .brand table td {
+  width: 93px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 700;
+  border: 1px solid #d9d8da;
+  border-bottom: 0;
+}
+main .content .brand table tr th:first-child,
+main .content .brand table tr td:first-child {
+  width: 67px;
+}
+main .content .brand table tr th:last-child,
+main .content .brand table tr td:last-child {
+  position: relative;
+  width: 290px;
+  text-align: left;
+  padding-left: 33px;
+}
+main .content .brand table .i {
+  position: absolute;
+  right: 21px;
+  top: 12px;
+  width: 140px;
+  height: 4px;
+  background: #d9d8da;
+}
+main .content .brand table .s {
+  display: block;
+  height: 4px;
+  background: #7ecaf0;
+}
+main .content .brand table .s1 {
+  width: 80%;
+  background: #a3b254;
+}
+main .content .brand table .s2 {
+  width: 70%;
+  background: #a3b254;
+}
+main .content .brand table .s3 {
+  width: 60px;
+  background: #a3b254;
+}
+main .content .brand table .s4 {
+  width: 62%;
+}
+main .content .brand table .s5 {
+  width: 50%;
+}
+main .content .brand table .s6 {
+  width: 40%;
+}
+main .content .brand table .s7 {
+  width: 35%;
+}
+main .content .brand table .s8 {
+  width: 30%;
+}
+main .content .brand table .s9 {
+  width: 25px;
+}
+main .content .brand table .s10 {
+  width: 20%;
+}

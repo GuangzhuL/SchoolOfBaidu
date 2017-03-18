@@ -1,0 +1,14 @@
+/**
+ * Created by Administrator on 2017/3/16.
+ */
+var gulp=require('gulp');
+var less=require('gulp-less');
+gulp.task('less',function () {
+    gulp.src('less/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('style'));
+});
+gulp.task('auto',function () {
+    gulp.watch('less/*.less',['less']);
+});
+gulp.task('default',['less','auto']);

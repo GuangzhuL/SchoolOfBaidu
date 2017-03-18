@@ -1,0 +1,783 @@
+// 2017.3.17
+// 初始化
+body {
+    margin: 0 auto;
+    font-family: "Microsoft YaHei";
+}
+
+// header开始
+@white: #fff;
+@border: 3px solid #2189bf;
+@gray: #6e8095;
+@main-gray: #b4b4b4;
+@main-black: #333332;
+header {
+    position: relative;
+    width: 100%;
+    // width: 1281px;
+    height: 57px;  
+    background-color: #2189bf;
+    .big-square {
+        position: absolute;
+        top: 10px;
+        left: 50px;
+        width: 36px;
+        height: 36px;
+        background-color: @white;
+        .small-square {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 14px;
+            height: 14px;
+            border-top: @border;
+            border-left: @border;
+            background-color: @white;
+        }
+    }
+    input {
+            position: absolute;
+            top: 10px;
+            right: 156px;
+            width: 313px;
+            height: 28px;
+            border: 0;
+            padding: 0;
+            padding-left: 16px;
+            border-radius: 14px;
+            font-size: 28px;
+        }
+    .fa.fa-user {
+        position: absolute;
+        top: 10px;
+        right: 92px;
+        font-size: 12px;
+        line-height: 28px;
+        letter-spacing: 2px;
+        color: @white;
+        cursor: pointer;
+    }
+    .fa.fa-user:hover {
+        color: #111;
+    }
+}
+
+// aside开始
+aside {
+    float: left;
+    width: 261px;
+    height: 1213px;
+    background-color: #2a2e3d;
+    .top {
+        height: 150px;
+            .wrap-top1 {
+                position: relative;
+                height: 50px;
+                padding: 20px 0 20px 45px;
+                .favicon-out {
+                    width: 58px;
+                    height: 58px;
+                    // border: 2px solid #b9babe;
+                    border-radius: 29px;
+                    .favicon-inner {
+                        width: 47px;
+                        height: 47px;
+                        border-radius: 23px;
+                        margin: 5px;
+                        background-color: #b9babe;
+                    }
+                }
+                p {
+                    position: absolute;
+                    top: 44px;
+                    right: 90px;
+                    font-size: 16px;
+                    font-family: "SimSun";
+                    font-weight: 700;
+                    color: @white;
+                }
+            }
+            .wrap-top2 {
+                height: 60px;
+                padding: 6px 0 19px 60px;
+                font-family: "SimSun";
+                font-size: 16px;
+                color: #5d6b7f;
+                p {
+                    width: 34px;
+                    height: 35px;
+                }
+                p:first-child {
+                    float: left;
+                    padding-right: 30px;
+                    border-right: 1px solid #5d6b7f;
+                }
+                p:last-child {
+                    float: left;
+                    padding-left: 34px;
+                }
+            }
+    }
+    .middle {
+        position: relative;
+        height: 191px;
+        font-family: "Simsun";
+        font-size: 12px;
+        background-color: #383d4e;
+        p,
+        span {
+            cursor: pointer;
+        }
+        span:hover,
+        p:hover {
+            color: @white !important;
+        }
+        .fa-folder-open {
+            padding: 14px 0 19px 45px;
+            color: @white;
+        }
+        .fa.fa-folder.first,
+         .fa.fa-folder.second {
+            padding: 0 0 18px 85px;
+            color: @gray;
+        }
+        .sub1,
+        .sub2,
+        .sub3 {
+            position: absolute;
+            left: 68px;
+            font-weight: 700;
+            color: @gray;
+        }
+        .sub1 {
+            top: 46px;
+        }
+        .sub2 {
+            top: 76px;
+            color: @white;
+        }
+        .fa.fa-folder.second {
+            color: @white;
+        }
+        .fa.fa-file-text-o.first,
+         .fa.fa-file-text-o.second {
+            padding: 0 0 18px 99px;
+            color: @white;
+        }
+        .fa.fa-file-text-o.second {
+            color: @gray;
+        }
+        .fa.fa-folder.third {
+            padding: 0 0 0 85px;
+            color: @gray;
+        }
+        .sub3 {
+            top: 165px;
+        }
+
+    }
+    .bottom {
+        height: 870px;
+        color:  @gray;
+        ul {
+            width: 72px;
+            height: 205px;
+            padding: 16px 0 0 45px;
+            font-family: "SimHei";
+            font-size: 12px;
+            cursor: pointer;
+            li {
+                padding-bottom: 37px;
+            }
+            li:hover {
+                color: @white;
+            }
+        }
+    }
+}
+
+// main开始
+@label-right: 16px;
+@select-top: 15px;
+@content-color: #eeeeed;
+@border-color: #d9d8da;
+main {
+    margin-left: 261px;
+    // width: 1021px;
+    width: 100%;
+    height: 1211px;
+    background-color: #eeedec;
+    h1 {
+         height: 24px;
+         font-size: 12px;
+         padding-left: 22px;
+         padding-top: 17px;
+         color: @main-gray;
+         background-color: @content-color;
+    }
+    .catalogue {
+        height: 31px;
+        background-color: @white;
+        ul {
+            height: 31px;
+            padding-left: 29px;
+            
+            li {
+                float: left;
+                padding-right: 7px;
+                font-family: "SimHei";
+                font-size: 12px;
+                line-height: 31px;
+                color: @main-gray;
+                cursor: pointer;
+            }
+            li:first-child {
+                padding-left: 29px;
+                padding-right: 13px;
+            }
+            li:last-child {
+                color: #6898c2;
+            }
+            li:hover {
+                color: #6898c2;
+            }
+        }
+    }
+    .content {
+        padding: 19px 59px 154px;
+        width: 903px;
+        height: 1010px;
+        background-color: @content-color;
+        .choose {
+            height: 86px;
+            color: @main-gray;
+            font-family: "SimHei";
+            font-size: 12px;
+            background-color: @white;
+            color: @gray;
+            form {
+                position: relative;
+                width: 845px;
+                height: 56px;
+                padding: 9px 0 21px 29px;
+                label {
+                    padding-right: @label-right;
+                }
+                select {
+                    margin-top: 6px;
+                }
+                input,
+                select {
+                    height: 23px;
+                    padding-left: 8px;
+                }
+                #query {
+                    width: 72px;
+                }
+                .buy {                    
+                    padding-left: 39px; 
+                }
+                #buy {
+                    width: 118px;
+                }
+                .date {
+                    padding-left: 60px;
+                }
+                #date {
+                    width: 121px;
+                }
+                .consume {
+                    padding-left: 15px;                  
+                }
+                #consume {
+                    width: 70px;
+                    word-spacing: 4px;
+                }
+                .sell {
+                    padding-left: 174px;
+                }
+                #sell {
+                    width: 118px;
+                }
+                .human {
+                    padding-left: 60px;
+                    word-spacing: 4px;
+                }
+                #human {
+                    width: 70px;
+                }
+                .deal {
+                    padding-left: 15px;
+                }
+                #deal {
+                    width: 134px;
+                    word-spacing: 4px;  
+                }
+                button {
+                    position: absolute;
+                    top: 35px;
+                    right: 31px;
+                    width: 51px;
+                    height: 26px;
+                    border: 0;
+                    border-radius: 3px;
+                    background-color: #388ac1;
+                    color: @white;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #111;
+                }
+                img {
+                    position: absolute;
+                    top: 15px;
+                    left: 368px;
+                    cursor: pointer;
+                }
+            }
+            
+        }   
+        .time {
+            height: 63px;
+            margin-top: 8px;
+            li {
+                float: left;
+                width: 110px;
+                height: 65px;
+                border-top: 1px solid @main-gray;
+                border-left: 1px solid @main-gray;
+                margin-right: 5px;
+                text-align: center;
+                background-color: @white;
+                cursor: pointer;
+            }
+            li p:first-child {
+                font-size: 12px;
+                line-height: 32px;
+                color: @main-black;
+            }
+            li p:last-child {
+                font-size: 21px;
+                color: #ec6500;
+            }
+            li p:last-child span {
+                font-size: 16px;
+                color: @main-gray;
+            }
+            .first,
+            .last {
+                width: 30px;
+                font-size: 20px;  
+                line-height: 63px;
+                color: @main-gray;             
+            }
+            .current {
+                height: 62px;
+                border-top: 4px solid #4388c8;
+            }
+            .history {
+                width: 133px;
+                margin-right: 0;
+                line-height: 53px;
+                font-size: 12px;
+            }
+            .history span {
+                font-size: 24px;
+                padding: 17px 11px 0 16px;
+                color: #4388c8
+            }
+            li:hover {
+                height: 62px;
+                border-top: 4px solid #4388c8;
+            }
+            .first:hover,
+            .last:hover {
+                background-color: @main-black;
+                border-top: 1px solid @main-gray;
+                border-left: 1px solid @main-gray;
+            }
+        }
+        .statistics {
+            h2 {
+                font-size: 16px;
+                font-weight: 700;
+                margin-top: 21px;
+                margin-bottom: 6px;
+            }
+            ul {
+                overflow: hidden;
+            }
+            li {
+                position: relative;
+                float: left;
+                width: 197px;
+                height: 71px;
+                font-size: 12px;
+                border: 1px solid @main-gray;
+                margin-right: 31px; 
+                background-color: @white;
+                p:first-child {
+                    padding: 21px 0 15px 7px;
+                }
+                p:last-child {
+                    padding-left: 7px;
+                    color: @main-gray;
+                }   
+                span {
+                    position: absolute;
+                    top: 13px;
+                    right: 14px;
+                    display: block;
+                    width: 59px;
+                    height: 46px;
+                }
+            }
+            .first {
+                    border-left: 4px solid #43b29d;
+                }
+                .first span {
+                    background-color: #43b29d;
+                }
+                .second {
+                    border-left: 4px solid #398bc2;
+                }
+                .second span {
+                    background-color: #398bc2;
+                }
+                .third {
+                    border-left: 4px solid #cf4a36;
+                }
+                .third span {
+                    background-color: #cf4a36;
+                }
+                .fourth {
+                    margin-right: 0;
+                    border-left: 4px solid #e2cd47;
+                }
+                .fourth span {
+                    background-color: #e2cd47;
+                }
+        }
+        .project {
+            // 清除浮动
+            overflow: hidden;
+            height: 357px;
+            margin-top: 14px;
+            .project1 {
+                position: relative;
+                float: left;
+                width: 531px;
+                height: 357px;
+                border-radius: 4px;
+                border: 2px solid @border-color;
+                background-color: @white;
+                ul {
+                    overflow: hidden;
+                }
+                li {
+                    float: left;
+                    width: 85px;
+                    height: 27px;
+                    margin-right: 4px;
+                    margin-top: 12px;
+                    line-height: 27px;
+                    text-align: center;
+                    border-radius: 4px;
+                    background-color: @content-color;
+                    cursor: pointer;
+                }
+                li:hover {
+                    background-color: @white;
+                    border: 2px solid @content-color;
+                    border-radius: 4px 4px 0 0;
+                    border-bottom: 0;
+                }
+                .current {
+                    height: 25px;
+                    margin-left: 20px;
+                    border: 2px solid @content-color;
+                    border-bottom: 0;
+                    border-radius: 4px 4px 0 0;
+                    background-color: @white;
+                }
+                .wrap {
+                    width: 488px;
+                    height: 249px;
+                    margin-left: 20px;
+                    border-radius: 0 4px 4px 4px;
+                    border: 2px solid @content-color;                                      
+                }
+                table {
+                    width: 405px;
+                    height: 148px;
+                    border-collapse: collapse;
+                    margin: 29px 0 0 58px;
+                    td {
+                        width: 84px;
+                        height: 29px;
+                        font-size: 12px;
+                        line-height: 29px;
+                        text-align: left;  
+                        padding-left: 18px;                      
+                        border: 1px solid @content-color;
+                    }
+                }
+                .mask {
+                    width: 85px;
+                    height: 3px;
+                    position: absolute;
+                    top: 79px;
+                    left: 22px;
+                    background-color: @white;
+                }
+            }
+                    .project2 {
+            position: relative;
+            width: 351px;
+            height: 356px;
+            font-size: 12x;
+            margin-left: 548px;
+            border: 2px solid @border-color;
+            border-radius: 4px;
+            background-color: @white;
+            h2 {
+                padding: 6px 0 12px 54px;
+                color: @border-color;
+            }
+            h3 {
+                padding: 0 0 12px 54px;
+                color: #000;
+            }
+            .p1,
+            .p2 {
+                float: left;
+                width: 126px;
+                height: 50px;
+                margin-left: 40px;
+                border-top: 1px solid @content-color;
+                border-left: 0;
+                color: @border-color;
+            }
+            .p1 {
+                border-right: 1px solid @content-color;
+            }
+            p .first,
+            p .second {
+                padding-left: 14px;
+                color: @border-color;
+            }
+            .p2 {
+               width: 184px;
+               margin-left: 0;
+               border-right: 0;
+            }
+            p span {
+                display: inline-block;
+                padding: 4px 0 4px 14px;
+                color: #000;
+            }
+            .clear {
+                overflow: hidden;
+            }
+            .p3 {
+                width: 311px;
+                margin-left: 40px;
+                padding-left: 4px;
+                border-top: 1px solid @content-color;
+                font-size: 12px;
+                line-height: 24px;
+                color: @border-color; 
+            }
+            textarea {
+                // width: 306px;
+                height: 106px;
+                font-size: 12px;
+                text-align: left;
+                margin-left: 40px;
+                border: 0; 
+                resize: none;
+            }
+            .check {
+                width: 275px;
+                padding-top: 6px;
+                margin-left: 36px;
+                font-size: 12px;
+                color: @border-color;
+                border-top: 1px solid @content-color;
+                input {
+                    margin-right: 6px;
+                    margin-bottom: 0;
+                    margin-top: 0;
+                    vertical-align: top;
+                }
+                button {
+                    float: right;
+                    width: 49px;
+                    height: 26px;
+                    font-size: 12px;
+                    line-height: 26px;
+                    text-align: center;
+                    border-radius: 3px;
+                    border: 0;
+                    color: @white;
+                    background-color: #388bc2;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: @border-color;
+                }
+            }
+            }
+        }
+        .bottom {
+            width: 887px;
+            height: 758px;
+        }
+        .calendar {
+            float: left;
+            width: 348px;
+            height: 356px;
+            background-color: @white;
+            border: 2px solid @border-color;
+            border-radius: 3px;
+            select,
+            button {
+                float: left;
+                height: 22px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            select {
+                margin-right: 6px;
+            }
+            button {
+                cursor: pointer;
+            }
+            .current {
+                margin-left: 20px;
+            }
+            .clear {
+                overflow: hidden;
+            }
+            ul {
+                width: 305px;
+                height: 31px;
+                margin-left: 20px;
+                border-top: 1px solid #a9cfec; 
+                border-bottom: 1px solid @border-color;
+                li {
+                    float: left;
+                    text-align: center;
+                    line-height: 31px;  
+                    padding: 0 15px 0 12px;
+                }
+                .sunday {
+                    padding-right: 0;
+                }
+            }
+            .number {
+                width: 315px;
+                height: 241px;
+                padding-left: 20px;
+            }
+            span {
+                float: left;
+                display: block;
+                width: 40px;
+                height: 26px;
+                padding: 12px 0 6px 0;
+                font-size: 12px;
+                text-align: center;
+            }
+            .stu {
+                padding-left: 170px;
+            }
+            .border {
+                width: 38px;
+                height: 22px;
+                border: 1px solid #f7d156;
+            }
+        }
+        .brand {
+            width: 532px;
+            height: 356px;
+            margin-left: 367px;
+            margin-top: 9px;
+            border: 2px solid @border-color;
+            border-radius: 4px;
+            background-color: @white;
+            table {
+                margin: 16px 40px 0 42px;
+                border-collapse: collapse;
+                text-align: center;
+                th,
+                td {
+                    width: 93px;
+                    height: 24px;
+                    font-size: 12px;
+                    line-height: 24px;
+                    font-weight: 700;
+                    border: 1px solid @border-color;
+                    border-bottom: 0;
+                }
+                tr th:first-child,
+                tr td:first-child {
+                    width: 67px;
+                }
+                tr th:last-child,
+                tr td:last-child {
+                    position: relative;
+                    width: 290px;
+                    text-align: left;
+                    padding-left: 33px;
+                }
+                .i {
+                    position: absolute;
+                    right: 21px;
+                    top: 12px;
+                    width: 140px;
+                    height: 4px;
+                    background: @border-color;
+                }
+                .s {
+                    display: block;
+                    height: 4px;
+                    background: #7ecaf0;
+                }
+                .s1 {
+                    width: 80%;
+                    background: #a3b254;
+                }
+                .s2 {
+                    width: 70%;
+                    background: #a3b254;
+                }
+                .s3 {
+                    width: 60px;
+                    background: #a3b254;
+                }
+                .s4 {
+                    width: 62%;
+                }
+                .s5 {
+                    width: 50%;
+                }
+                .s6 {
+                    width: 40%;
+                }
+                .s7 {
+                    width: 35%;
+                }
+                .s8 {
+                    width: 30%;
+                }
+                .s9 {
+                    width: 25px;
+                }
+                .s10 {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
