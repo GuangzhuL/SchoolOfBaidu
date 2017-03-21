@@ -1,0 +1,121 @@
+body {
+    margin: 0 atuo;
+}
+table {
+    margin-left: 400px;
+}
+table thead tr{
+    text-align: left;
+    color: #fff;
+    background: #000;
+}
+table tbody tr:nth-child(2n) {
+    background: #888;
+}
+tbody tr:nth-child(1),
+tbody tr:nth-child(2),
+tbody tr:nth-child(3) {
+    color: #ff0000;
+}
+/*下面用了动画效果，因此图形变化了之后是会变回去的*/
+input {
+    
+    width: 200px;
+    margin-top: 100px;
+    margin-left: 400px;
+}
+@keyframes inputchange {
+    from {width: 200px;}
+    to {width: 400px;}
+
+    form {border: 0;}
+    to {border: 2px solid #343434;}
+}
+@-moz-keyframes inputchange {
+    from {width: 200px;}
+    to {width: 400px;}
+
+    form {border: 0;}
+    to {border: 2px solid #343434;}
+}
+@-webkit-keyframes inputchange {
+    from {width: 200px;}
+    to {width: 400px;}
+
+    form {border: 0;}
+    to {border: 2px solid #343434;}
+}
+@-o-keyframes inputchange {
+    from {width: 200px;}
+    to {width: 400px;}
+
+    form {border: 0;}
+    to {border: 2px solid #343434;}
+}
+input:focus {
+    animation: inputchange 3s;
+    -moz-animation: inputchange 3s;
+    -webkit-animation: inputchange 3s;
+    -o-animation: inputchange 3s;
+}
+.wrap {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
+    margin-top: 200px;
+    margin-left: 400px;
+}
+.wrap .span-wrap {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 63px;
+    height: 20px;
+    z-index: 99;
+}
+.wrap .span-wrap span {
+    float: left;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 1px;
+    text-align: center;
+    background: #123123; 
+}
+.wrap .span-wrap a {
+    text-decoration: none;
+    color: #fff;
+}
+.slide1,
+.slide2,
+.slide3 {
+    float: left;
+    width: 300px;
+    height: 100%;
+}
+.wrap-slide {
+    position: relative;
+    width: 300%;
+    height: 100%;
+    transition: left 1s ease;
+}
+/*下面的~是指与#slide1:target同父元素下的所有.wrap-slide*/
+#slide1:target~ .wrap-slide {  
+    left: 0;
+}
+#slide2:target~ .wrap-slide {
+    left: -100%;
+}
+#slide3:target~ .wrap-slide {
+    left: -200%;
+}
+.slide1 {
+    background: red;
+}
+.slide2 {
+    background: black;
+}
+.slide3 {
+    background: green;
+}
