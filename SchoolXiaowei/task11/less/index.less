@@ -1,0 +1,266 @@
+// 公共类样式
+
+@bagBlue: #91D4da;
+@background: #f8f8f8;
+@white: #fff;
+@black: #000;
+
+// 基准样式
+body {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
+
+// header开始
+header {
+    max-width: 100%;
+    height: 3rem;
+    text-align: center;
+    line-height: 3rem;
+    color: @white;
+    background: @bagBlue;
+    h1 {
+        margin-right: 15%;        
+    }
+    a {
+        float: left;
+        display: inline-block;
+        padding-left: 5%;
+        text-decoration: none;
+        color: @white;        
+    }
+}
+
+// nav开始
+nav {
+    max-width: 100%;
+    ul li {
+        float: left;
+        width: 20%;
+        height: 3rem;
+        text-align: center;
+    }
+    a {
+        text-decoration: none;
+        line-height: 3rem;
+        color: @black;
+    }
+    li:hover {
+    border-bottom: 2px solid @bagBlue;
+    }
+}
+
+
+// banner开始
+.banner {
+    clear: both;
+    display: flex;
+    max-width: 100%;
+    height: 20rem;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// label开始
+.label {
+    width: 100%;
+    ul {
+        width: 92%;
+        height: 8rem;
+        margin: 4%;
+        border-bottom: 2px solid @bagBlue;
+        li {
+            position: relative;
+            float: left;
+            display: block;
+            width: 16%;
+            height: 4rem;
+            border-radius: 50%;
+            line-height: 4rem;
+            background-color: @bagBlue;
+            margin-right: 4%;
+            text-align: center;
+            color: @white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        span {
+            position: absolute;
+            top: 100%;
+            display: block;
+            width: 111%;
+            color: @black;
+        }
+    }
+}
+
+// column开始
+.column {
+    max-width: 100%;
+    height: 14rem;
+    padding: 4%;
+    border-bottom: 1rem solid @background;
+    div {
+        float: left;
+        position: relative;
+        width: 20%;
+        height: 7rem;
+        padding-right: 6%;
+        border-right: 2px solid @bagBlue;
+        margin-left: 6%;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        h1,
+        h2 {
+            text-align: center;
+            padding-top: 15%;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+        h2 {
+            position: absolute;
+            left: -25%;
+            width: 122%;
+            font-size: 1.2rem;
+        }
+    }
+    .last {
+        margin-right: 0;
+        border: 0;
+    }
+}
+
+//module开始
+.module {
+    display: flex;
+    max-width: 100%;
+    height: 400px;
+    padding: 0 4%;
+    flex-direction: column;
+    h1 {
+        display: block;
+        width: 100%;
+        height: 20%;
+        font-size: 2rem;
+        line-height: 5rem;
+        border-bottom: 2px solid @bagBlue;
+        }    
+    section {        
+        width: 100%;
+        height: 36%;
+        .image {
+            width: 30%;
+            box-shadow: 2px 2px 2px #ffb935;
+        }
+        div {
+            float: left;
+            margin-top: 5%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .file {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            height: 58%;
+        }
+        p {
+            display: block;
+            width: 40%;
+            height: 45%;
+            margin-left: 5%;
+            margin-bottom: 7%;
+            font-size: 1.5rem;
+            text-align: center;
+            line-height: 3rem;
+            background: @background;
+        }
+    }
+    section:last-child {
+        border-bottom: 20px solid @background;
+    }
+}
+
+// article2开始
+.article2 {
+    max-width: 100%;
+    height: 330px;  
+    margin: 4%;
+    section {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        margin-top: 4%;
+        border-bottom: 1px solid yellow;;
+        flex-direction: row;
+    }
+    .image {
+        width: 30%;
+        height: 90%;
+        background-color: red;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .title {
+        position: relative;
+        width: 70%;
+        height: 90%;
+        padding-left: 2%;
+        h1 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        p {
+            position: absolute;
+            bottom: 0;
+            font-size: 1.2rem;
+            color: @bagBlue;
+        }
+    }
+}
+
+// article3
+.article3 {
+    max-width: 100%;
+    height: 330px;
+    margin: 8%; //上下margin塌陷原理，所以margin要加倍
+    h1 {
+        width: 100%;
+        height: 20%;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 3rem;
+    }
+    .wrap {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 60%;
+        div {
+            width: 32%;
+            height: 100%;
+            margin-right: 2%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    } 
+    p {
+        font-size: 1.35rem;
+        line-height: 3rem;
+        color: @bagBlue;
+    }   
+}
+
+
+

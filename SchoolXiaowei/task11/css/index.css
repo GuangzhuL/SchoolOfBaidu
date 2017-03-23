@@ -1,0 +1,238 @@
+body {
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
+}
+header {
+  max-width: 100%;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  color: #fff;
+  background: #91D4da;
+}
+header h1 {
+  margin-right: 15%;
+}
+header a {
+  float: left;
+  display: inline-block;
+  padding-left: 5%;
+  text-decoration: none;
+  color: #fff;
+}
+nav {
+  max-width: 100%;
+}
+nav ul li {
+  float: left;
+  width: 20%;
+  height: 3rem;
+  text-align: center;
+}
+nav a {
+  text-decoration: none;
+  line-height: 3rem;
+  color: #000;
+}
+nav li:hover {
+  border-bottom: 2px solid #91D4da;
+}
+.banner {
+  clear: both;
+  display: flex;
+  max-width: 100%;
+  height: 20rem;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+}
+.label {
+  width: 100%;
+}
+.label ul {
+  width: 92%;
+  height: 8rem;
+  margin: 4%;
+  border-bottom: 2px solid #91D4da;
+}
+.label ul li {
+  position: relative;
+  float: left;
+  display: block;
+  width: 16%;
+  height: 4rem;
+  border-radius: 50%;
+  line-height: 4rem;
+  background-color: #91D4da;
+  margin-right: 4%;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.label ul span {
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 111%;
+  color: #000;
+}
+.column {
+  max-width: 100%;
+  height: 14rem;
+  padding: 4%;
+  border-bottom: 1rem solid #f8f8f8;
+}
+.column div {
+  float: left;
+  position: relative;
+  width: 20%;
+  height: 7rem;
+  padding-right: 6%;
+  border-right: 2px solid #91D4da;
+  margin-left: 6%;
+}
+.column div img {
+  width: 100%;
+  height: 100%;
+}
+.column div h1,
+.column div h2 {
+  text-align: center;
+  padding-top: 15%;
+}
+.column div h1 {
+  font-size: 1.5rem;
+}
+.column div h2 {
+  position: absolute;
+  left: -25%;
+  width: 122%;
+  font-size: 1.2rem;
+}
+.column .last {
+  margin-right: 0;
+  border: 0;
+}
+.module {
+  display: flex;
+  max-width: 100%;
+  height: 400px;
+  padding: 0 4%;
+  flex-direction: column;
+}
+.module h1 {
+  display: block;
+  width: 100%;
+  height: 20%;
+  font-size: 2rem;
+  line-height: 5rem;
+  border-bottom: 2px solid #91D4da;
+}
+.module section {
+  width: 100%;
+  height: 36%;
+}
+.module section .image {
+  width: 30%;
+  box-shadow: 2px 2px 2px #ffb935;
+}
+.module section div {
+  float: left;
+  margin-top: 5%;
+}
+.module section img {
+  width: 100%;
+  height: 100%;
+}
+.module section .file {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 58%;
+}
+.module section p {
+  display: block;
+  width: 40%;
+  height: 45%;
+  margin-left: 5%;
+  margin-bottom: 7%;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 3rem;
+  background: #f8f8f8;
+}
+.module section:last-child {
+  border-bottom: 20px solid #f8f8f8;
+}
+.article2 {
+  max-width: 100%;
+  height: 330px;
+  margin: 4%;
+}
+.article2 section {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  margin-top: 4%;
+  border-bottom: 1px solid yellow;
+  flex-direction: row;
+}
+.article2 .image {
+  width: 30%;
+  height: 90%;
+  background-color: red;
+}
+.article2 .image img {
+  width: 100%;
+  height: 100%;
+}
+.article2 .title {
+  position: relative;
+  width: 70%;
+  height: 90%;
+  padding-left: 2%;
+}
+.article2 .title h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.article2 .title p {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.2rem;
+  color: #91D4da;
+}
+.article3 {
+  max-width: 100%;
+  height: 330px;
+  margin: 8%;
+}
+.article3 h1 {
+  width: 100%;
+  height: 20%;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 3rem;
+}
+.article3 .wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60%;
+}
+.article3 .wrap div {
+  width: 32%;
+  height: 100%;
+  margin-right: 2%;
+}
+.article3 .wrap img {
+  width: 100%;
+  height: 100%;
+}
+.article3 p {
+  font-size: 1.35rem;
+  line-height: 3rem;
+  color: #91D4da;
+}
