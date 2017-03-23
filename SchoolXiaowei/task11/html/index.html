@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <title>task11</title>
+    <script type="text/javascript">
+        (function(window){
+            var width = window.screen.width;
+            var html = document.getElementsByTagName("html")[0];
+            html.style.fontSize = width / 21.78 + "px";
+            console.log(html.style.fontSize);
+            window.onresize = function(){
+                var width = window.screen.width;
+                html.style.fontSize = width / 21.78 + "px";
+            }
+        })(window);
+    </script>
 </head>
 <body>
     <header>
