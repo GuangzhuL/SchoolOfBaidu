@@ -136,6 +136,7 @@ nav li:hover {
 }
 .module section .image {
   width: 30%;
+  height: 100%;
   box-shadow: 2px 2px 2px #ffb935;
 }
 .module section div {
