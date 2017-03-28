@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: #000;
+            padding-right: 20px;
+        }
+
+        /*下面的注释部分也是一种实现方法，这种方法方便快捷，但是需要计算*/
+
+        /*.wrap1 {
+            display: flex;
+            flex-direction: row;
+            max-width: 100%;
+        }
+        .wrap1 div {
+            width: 33.33%;
+            height: 50px;
+            margin-top: 20px;
+            margin-left: 20px;
+            background: #eee;
+        }*/
+
+        /*接下来的这种方法是形象直观，但是代码繁琐*/
+        /*wrap1开始*/
+        .wrap1,
+        .wrap2,
+        .wrap3,
+        .wrap4,
+        .wrap5 {
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+            max-width: 100%;
+        }
+        .wrap1 div,
+        .wrap2 div,
+        .wrap3 div {
+            height: 50px;
+            margin-top: 20px;
+            margin-left: 20px;
+            border: 1px solid #999;
+            background: #eee;            
+        }
+        .wrap1 div {
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            box-flex: 1;
+        }
+
+        /*wrap2开始*/
+        .wrap2 div:first-child,
+        .wrap2 div:last-child {
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            box-flex: 1;
+        }   
+        .wrap2 div:nth-child(2) {
+            -moz-box-flex: 2;
+            -webkit-box-flex: 2;
+            box-flex: 2;
+        } 
+
+        /*wrap3开始*/
+        .wrap3 div:first-child,
+        .wrap3 div:nth-child(2) {
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            box-flex: 1;            
+        }
+        .wrap3 div:nth-child(3),
+        .wrap3 div:nth-child(4) {
+            -moz-box-flex: 2;
+            -webkit-box-flex: 2;
+            box-flex: 2;            
+        }
+        .wrap3 div:nth-child(5),
+        .wrap3 div:last-child {
+            -moz-box-flex: 6;
+            -webkit-box-flex: 6;
+            box-flex: 6;            
+        }
+
+        /*屏幕小于或者等于768px时*/
+        @media only screen and (max-width: 768px) {
+            .wrap1 div:last-child,
+            .wrap2 div:first-child,
+            .wrap2 div:nth-child(2),
+            .wrap3 div:nth-child(1),
+            .wrap3 div:nth-child(2) {
+                display: none;
+            }
+            .wrap3 div:nth-child(3),
+            .wrap3 div:nth-child(5) {
+                -moz-box-flex: 3;
+                -webkit-box-flex: 3;
+                box-flex: 3; 
+            }
+            .wrap3 div:nth-child(4) {
+                -moz-box-flex: 6;
+                -webkit-box-flex: 6;
+                box-flex: 6; 
+            }
+            .wrap4 div,
+            .wrap5 div {
+                height: 50px;
+                margin-top: 20px;
+                margin-left: 20px;
+                border: 1px solid #999;
+                background: #eee;                
+            }            
+            .wrap4 div:nth-child(1),
+            .wrap4 div:nth-child(2) {
+                -moz-box-flex: 2;
+                -webkit-box-flex: 2;
+                box-flex: 2;                
+            }
+            .wrap4 div:nth-child(3) {
+                -moz-box-flex: 8;
+                -webkit-box-flex: 8;
+                box-flex: 8;                 
+            }
+            .wrap5 div:nth-child(1),
+            .wrap5 div:nth-child(2) {
+                -moz-box-flex: 3;
+                -webkit-box-flex: 3;
+                box-flex: 3;                
+            }
+            .wrap5 div:nth-child(3) {
+                opacity: 0;        //透明让这个元素不可见
+                -moz-box-flex: 6;
+                -webkit-box-flex: 6;
+                box-flex: 6;                 
+            }            
+        }
+    </style>
+    <title>task8</title>
+</head>
+<body>
+    <div class="wrap1">
+        <div>四栏</div>
+        <div>四栏</div>
+        <div>四栏</div>
+    </div>
+    <div class="wrap2">
+        <div>三栏</div>
+        <div>六栏</div>
+        <div>三栏</div>
+    </div>
+    <div class="wrap3">
+        <div>一栏</div>
+        <div>一栏</div>
+        <div>二栏</div>
+        <div>二栏</div>
+        <div>六栏</div>               
+    </div>
+    <div class="wrap4">
+        <div>二栏</div>
+        <div></div>
+        <div></div>       
+    </div>
+    <div class="wrap5">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>
