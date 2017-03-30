@@ -25,7 +25,7 @@ function leftUnshift() {
     if (reg.test(input.value)) {
         var li = document.createElement("li");
         li.style.height = input.value + "px";
-        // li.innerHTML = input.value;
+        li.innerHTML = input.value;
         var lis = ul.getElementsByTagName("li");
         if (lis.length < 59) {
             ul.insertBefore(li, ul.firstChild);            
@@ -43,7 +43,7 @@ function rightPush() {
     if (reg.test(input.value)) {
         var li = document.createElement("li");
         li.style.height = input.value + "px";
-        // li.innerHTML = input.value;
+        li.innerHTML = input.value;
         var lis = ul.getElementsByTagName("li");
         if (lis.length < 59) {
             ul.appendChild(li);           
@@ -67,10 +67,14 @@ function rightPop() {
     ul.removeChild(ul.lastChild); 
     empty();
 }
-var arr = new Array();
+var state = new Array(),
+    newArr = new Array();
+var count1 = 0,
+    count2 = 0,
+    a = 0;
 function sort() {
+    var arr = new Array();
     var lis = ul.getElementsByTagName("li");
-    console.log(lis.length)
     for (var k = 0; k < lis.length; k++) {
         arr[k] = parseInt(lis[k].style.height); //取字符的前面数字部分
         arr[k] = Number(arr[k]); //贼关键，将转换到的数字强制成真正的数字，因为前面的数字只是字符串的比较，用于比较100
@@ -83,23 +87,36 @@ function sort() {
                 temp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
+                count1++;
             }
         }
     }
-
+    state = arr;
+}
+function initRender() {
+    sort();
+    timer = setInterval(render, 500);//每隔500ms渲染一遍
 }
 function render() {
-    sort();
+    // 次数达到满之后关闭定时器
+    if (count2 == count1) {
+        clearInterval(timer);
+    };
+    count2++;
+    //每次取第一个数字加入到newArr数组中
+    newArr[a] = state.shift();  
+    a++;
     var lis = ul.getElementsByTagName("li");
-    for (i = 0; i < lis.length; i++) {
-        lis[i].style.height = arr[i] + "px";
-    }
+    for (var i = 0; i < newArr.length; i++) {
+        lis[i].style.height = newArr[i] + "px";
+        lis[i].innerHTML = newArr[i];
+    }  
 }
 addEvent(button[0], "click", leftUnshift);
 addEvent(button[1], "click", rightPush);
 addEvent(button[2], "click", leftShift);
 addEvent(button[3], "click", rightPop);
-addEvent(button[4], "click", render);
+addEvent(button[4], "click", initRender);
 ul.onmouseover = function () {
 	var lis = ul.getElementsByTagName('li');
 	for (var i in lis) {
