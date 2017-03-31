@@ -15,7 +15,7 @@ var ul = document.getElementById("ul");
 var textarea = document.getElementsByTagName("textarea")[0];
 var button = document.getElementsByTagName("button");
 // 用于检测是否输入要求的数字
-// var reg = /[^0-9a-zA-Z\u4e00-\u9fa5]+$/;
+// ^放在方括号里面取反
 var reg = /[^0-9a-zA-Z\u4e00-\u9fa5]+/;
 
 // 用于按下按钮之后清空input里面的值
@@ -26,7 +26,7 @@ var arr = new Array();
 function insert() {
     var textValue = textarea.value;
     textValue.trim();
-    //  首先利用split（正则表达式）可以取得是中文大小写字符的部分而其他忽略。但是,
+    //  首先利用split（正则表达式）获取要的数据。但是,
     //  最后的输入的字符串的最后如果有空格会被捕抓到，所以需要利用filter来对空格进行过滤
     arr = textValue.split(reg).filter(function(e) {
         return e != "";

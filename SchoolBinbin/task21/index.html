@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 100px 300px;
+        }
+        div {
+            width: 500px;
+            height: 100px;
+        }
+        input {
+            margin: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding-left: 4px;
+        }
+        ul {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            list-style: none;
+        }
+        li {
+            margin: 10px;
+            padding: 10px;
+            background: #999;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        li:hover {
+            background: #ff0000;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <label for="tag">Tag</label>
+    <input type="text" placeholder="输入你要的课程">
+    <ul id="tag">
+        
+    </ul>
+    <textarea rows="5" cols="30"></textarea><br>
+    <input type="submit" value="确认兴趣爱好">
+    <ul id="hobby">
+        
+    </ul>
+
+    <script>
+        // 添加绑定事件，兼容浏览器差异
+        function addEvent(element, event, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(event, handler, false);
+            }
+            else if (element.attachEvent) {
+                element.attachEvent("on" + event, handler)
+            }
+            else {
+                element["on" + event] = handler;
+            }
+        }
+        var label = document.getElementsByTagName("label")[0];
+        var input = document.getElementsByTagName("input");        
+        var tag = document.getElementById("tag");
+        var textarea = document.getElementsByTagName("textarea");
+        var hobby = document.getElementById("hobby");
+        var newarr= [];
+        function output(e) {
+            var oe = e || event; //为了兼容浏览器
+               if (oe.keyCode == 13 || oe.keyCode == 32 || oe.keyCode == 188) {
+                   var liValue = this.value.trim();
+                   liValue = liValue.replace(/[,]+/g, "");
+                   liValue = liValue.replace(/[，]+/g, "");
+                   liValue = liValue.replace(/(^\s+)|(\s+$)/, "");
+                   if (!delRep(tag, liValue)) {
+                       if (liValue.length) {  //用于防止输入空格
+                            var li = document.createElement("li");
+                            li.innerHTML = liValue;
+                            addEvent(li, "mouseover", adddel);
+                            addEvent(li, "mouseout", removeDel);
+                            addEvent(li, "click", del);
+                            tag.appendChild(li);
+                       }
+                       if (tag.children.length > 9) { // 这里有个疑问，为什么是9，测试是10才对，可是没有得到正确的删除
+                           tag.removeChild(tag.firstChild);
+                       }
+                   }
+                   else {
+                       alert("请不要输入重复的数据");
+                   }
+                   this.value = null;    //不能直接用liValue，因为那是一个固定好的值了
+               }
+            }
+
+        // 去重
+        function  delRep(tag, liv) {
+            var lis = tag.getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].innerHTML == liv) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function adddel() {
+            this.innerHTML = "删除" + this.innerHTML;
+        }
+        function removeDel() {
+            this.innerHTML = this.innerHTML.substring(2); //删除上面添加遗留的“删除”二字
+        }
+        function del() {
+            tag.removeChild(this);
+        }
+        //去除数组重复元素
+        function delRepArr(arr) {
+            var outarr = [];
+            for (i = 0; i < arr.length; i++) {
+                if (newarr.indexOf(arr[i]) < 0) {
+                    newarr.push(arr[i]);
+                    outarr.push(arr[i]); //用于存放每次更新的数据
+                }
+            }
+            return outarr;
+        }
+        function addHobby() {
+            var reg = /[^0-9a-zA-Z\u4e00-\u9fa5]+/;
+            var textValue = textarea[0].value.trim();
+            var arr = textValue.split(reg);
+            var outarr = delRepArr(arr);
+            for (var i = 0; i < outarr.length; i++) {
+                var li = document.createElement("li");
+                li.innerHTML = outarr[i];
+                hobby.appendChild(li);
+                if (hobby.children.length > 9) {
+                    hobby.removeChild(hobby.firstChild);
+                }
+            }
+            textarea[0].value = "";
+        }
+        addEvent(input[0], "keyup", output);
+        addEvent(input[1], "click", addHobby);
+    </script>
+</body>
+</html>
