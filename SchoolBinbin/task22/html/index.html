@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task22</title>
+    <style>
+        div {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            margin: 14px;
+            border: 2px solid #ff0000;
+            /*过渡效果*/
+            transition: background-color 1000ms;  
+        }
+        #tree {
+            width: 1000px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        section {
+            margin: -40px 300px;
+        }
+        button {
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="tree">
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <button>前序</button>
+        <button>中序</button>
+        <button>后序</button>        
+    </section>
+
+    <script>
+        //兼容浏览器
+        function addEvent(element, event, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(event, handler, false);
+            }
+            else if (element.attachEvent) {
+                element.attachEvent("on" + event, handler);
+            }
+            else {
+                element["on" + event] = handler;
+            }
+        }
+
+        var tree = document.getElementById("tree");
+        var buttons = document.getElementsByTagName("button");
+        var speed = 500;
+        var arr = [];
+
+        function visitTree(node) {
+            //注意这里的颜色要这种写法，和css的不同
+            node.style.backgroundColor = "#00ff00";
+            setTimeout(function() {
+                node.style.backgroundColor = "#fff";
+            }, speed);
+        } 
+
+        //前序：根-->左子树-->右子树              
+        function preorder(root) {
+            //判断语句用于防止遍历到最后一个的子元素找不到其第一个子元素的时候弹出错误
+            if (!root) {
+                return;
+            }
+            //把函数存入数组
+            arr.push(function() {
+                visitTree(root);
+            });
+            //注意这里的子元素写法，要求写到firstElementChild才能得到真正的子元素，单纯写firstChild不行
+            preorder(root.firstElementChild);
+            preorder(root.lastElementChild);
+        }
+
+        //中序：左子树-->根-->右子树        
+        function inorder(root) {
+            if (!root) {
+                return;
+            }            
+            inorder(root.firstElementChild);
+            arr.push(function() {
+                visitTree(root);
+            });
+            inorder(root.lastElementChild);
+        }
+
+        //后序：左子树-->右子树-->根          
+        function epilogue(root) {
+            if (!root) {
+                return;
+            }            
+            epilogue(root.firstElementChild);
+            epilogue(root.lastElementChild);
+            arr.push(function() {
+                visitTree(root);
+            });
+        }
+
+        function renderPreorder() {
+            //禁用此按钮，防止用户多次点击
+            buttons[0].disabled = true;            
+            preorder(tree);
+            render()
+        }
+        function renderInorder() {
+            buttons[1].disabled = true;
+            inorder(tree);
+            render()            
+        }
+        function renderePilogue() {
+            buttons[2].disabled = true;
+            epilogue(tree);
+            render()
+        }
+        function render() {            
+            var timer = setInterval(function() {
+                if (arr.length === 0) {
+                    clearInterval(timer);
+                    return;
+                }
+                //这里的两个括号，第二个用于执行函数，最终数组arr会被清空，从而可以让其他按钮实现所要的功能
+                arr.shift()();
+            }, speed);
+        }
+        addEvent(buttons[0], "click", renderPreorder);
+        addEvent(buttons[1], "click", renderInorder);
+        addEvent(buttons[2], "click", renderePilogue);
+    </script>
+</body>
+</html>

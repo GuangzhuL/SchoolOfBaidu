@@ -1,109 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-    <style>
-        *{margin: 0; padding: 0;}
-        body{padding: 50px 50px; font-family: "Microsoft Yahei";}
-        ul{margin: 20px 0; overflow: auto;}
-        li{float: left;padding: 10px; color: white; list-style: none; text-align: center; font-weight: bold; margin: 10px 10px 10px 0;}
-        input{ padding: 5px; font-size: 16px;}
-        textarea{padding: 5px;}
-        #tag li{ background: #87C9FF;}
-        #tag li:hover{ background: red; cursor: pointer;}
-        #hobby li{background: #FFCA8A;}
-    </style>
+	<meta charset="UTF-8">
+	<title>task_22</title>
+	<style>
+		.root {
+			display: flex;
+			padding: 20px;
+			width: 1000px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			margin-bottom: 10px;
+			justify-content: space-between;
+		}
+		.child_1 {
+			display: flex;
+			padding: 20px;
+			width: 450px;
+			height: 260px;
+			border: 1px solid red;
+			justify-content: space-between;
+		}
+		.child_2 {
+			display: flex;
+			padding: 20px;
+			width: 170px;
+			height: 220px;
+			border: 1px solid green;
+			justify-content: space-between;
+		}
+		.child_3 {
+			display: flex;
+			padding: 20px;
+			width: 35px;
+			height: 180px;
+			border: 1px solid blue;
+			justify-content: space-between;
+		}
+		input {
+			margin-left: 100px;
+			width: 50px;
+			height: 40px;
+			font-size: 40px;
+		}
+	</style>
 </head>
 <body>
-<label for="in"><b>Tag: </b></label><input type="text" id="in" /><br />
-<ul id="tag">
-</ul>
-<textarea id="text" cols="50" rows="10">以空格或回车作为分隔符</textarea><br />
-<input type="button" value="确认兴趣爱好" id="search"/>
-<ul id="hobby">
-</ul>
-
+	<div class="root">
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+	</div>
+	<input type="button" value="前序">
+	<input type="button" value="中序">
+	<input type="button" value="后序">
 <script>
-        var oInput=document.getElementById("in");
-        var tag=document.getElementById("tag");
-        var oBtn=document.getElementById("search");
-        var oTxt=document.getElementById("text");
-        oInput.onkeyup=function(e){
-            var oe=e||event;
-            if(oe.keyCode==13||oe .keyCode==32||oe.keyCode==188){
-                var liTxt=this.value;
-                liTxt=liTxt.replace(/[，]+/g,"");
-                liTxt=liTxt.replace(/[,]+/g,"");
-                liTxt=liTxt.replace(/(^\s+)|(\s+$)/,"");
-                if(!duCheck(tag,liTxt)){
-                    if(liTxt.length){
-                        var li=document.createElement("li");
-                        li.innerHTML=liTxt;
-                        tag.appendChild(li);
-                        li.onmouseover=add;
-                        li.onmouseout=delAdd;
-                        li.onclick=delChild;
-                        var aLi=tag.getElementsByTagName("li");
-                        if(aLi.length>10){
-                            tag.removeChild(aLi[0]);
-                        }
-                    }
-                }
-                this.value="";
-            }
-            else{
-                console.log(oInput.value);
-                if(oInput.value[0]==","){
-                    oInput.value=oInput.value.substring(1);
-                }
-            }
+    var btn = document.getElementsByTagName('input'),
+        preBtn = btn[0],
+        inBtn = btn[1],
+        postBtn = btn[2],
+        treeRoot = document.getElementsByClassName('root')[0],
+        divList = [],
+        timer = null;
+    window.onload = function (){
+        preBtn.onclick = function () {
+            reset();
+            preOrder(treeRoot);
+            changeColor();
         }
-        oBtn.onclick=function(){
-            var oHob=document.getElementById("hobby");
-            var arr=new Array;
-            arr=oTxt.value.split(/\s+/);
-            for(var i=0;i<arr.length;i++){
-                if(arr[i].length){
-                    if(!duCheck(oHob,arr[i])){
-                        var li=document.createElement("li");
-                        li.innerHTML=arr[i].replace("<","&lt");
-                        console.log(arr[i]+" "+li.innerHTML);
-                        oHob.appendChild(li);
-                        var aLi=oHob.getElementsByTagName("li");
-                        if(aLi.length>10){
-                            oHob.removeChild(aLi[0]);
-                        }
-                    }
-                }
-            }
+        inBtn.onclick = function () {
+            reset();
+            inOrder(treeRoot);
+            changeColor();
         }
-        oTxt.onfocus=function(){
-            if(this.value==this.defaultValue){
-                this.value="";
-            }
+        postBtn.onclick = function () {
+            reset();
+            postOrder(treeRoot);
+            changeColor();
         }
-        oTxt.onblur=function(){
-            if(this.value==""){
-                this.value=this.defaultValue;
-            }
-        }
-    function add(){
-        this.innerHTML="点击删除 "+this.innerHTML;
     }
-    function delAdd(){
-        this.innerHTML=this.innerHTML.substring(5);
-    }
-    function delChild(){
-        tag.removeChild(this);
-    }
-    function duCheck(tag,txt){
-        var aLi=tag.getElementsByTagName("li");
-        for(var i=0;i<aLi.length;i++){
-            if(aLi[i].innerHTML.toLowerCase()==txt.toLowerCase())
-                return true;
+
+    //前序遍历
+    function preOrder(node) {
+        if (!(node == null)) {
+            divList.push(node);
+            preOrder(node.firstElementChild);
+            preOrder(node.lastElementChild);
         }
-        return false;
+    }
+
+    //中序遍历
+    function inOrder(node) {
+        if (!(node == null)) {
+            inOrder(node.firstElementChild);
+            divList.push(node);
+            inOrder(node.lastElementChild);
+        }
+    }
+
+    //后序遍历
+    function postOrder(node) {
+        if (!(node == null)) {
+            postOrder(node.firstElementChild);
+            postOrder(node.lastElementChild);
+            divList.push(node);
+        }
+    }
+
+    //颜色变化函数
+    function changeColor() {
+        var i = 0;
+        divList[i].style.backgroundColor = 'blue'
+        timer = setInterval(function (argument) {
+            i++;
+            if (i < divList.length) {
+                divList[i-1].style.backgroundColor = '#fff';
+                divList[i].style.backgroundColor = 'blue';
+            } else {
+                clearInterval(timer);
+                divList[divList.length-1].style.backgroundColor = '#fff';
+            }
+        },500)
+    }
+
+    //初始化样式
+    function reset() {
+        divList = [];
+        clearInterval(timer);
+        var divs = document.getElementsByTagName('div');
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.backgroundColor = '#fff';
+        }
     }
 </script>
 </body>
