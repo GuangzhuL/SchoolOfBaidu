@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task24</title>
+    <style>
+        article {
+            width: 1200px;
+            margin: auto;
+        }
+        div {
+            margin: 4px;
+            border: 2px solid #0000ff;
+            /*
+            只需要在这里加上了背景颜色为白色，就可以达到了我们要的只变化遍历结点的颜色，而不会把包括其子元素的颜色都一起变化
+            */
+            background-color: #fff;
+            /*过渡效果*/
+            transition: background-color 1s;
+        }
+        section {
+            display: flex;
+            width: 1200px; 
+            margin: auto;  
+            cursor: pointer;
+        }
+        section div{
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff0000;
+        }
+        input {
+            padding-left: 8px;
+        }
+        .found {
+            background-color: #ff0000;
+        }
+        .active {
+            background-color: #00ff00;
+        }
+        .selected {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+<article>
+    <button>深度优先遍历</button>
+    <button>广度优先遍历</button>
+    <input type="text" placeholder="请输入你要找的玩意">
+    <button>深度优先搜索</button>
+    <button>广度优先搜索</button>
+    <input type="text" placeholder="添加你要的结点">
+    <button>添加结点</button>
+    <button>删除结点</button>
+</article>
+
+<section>
+    <div id="root">
+        Super
+        <div>
+            Cat
+            <div>
+                Apple
+                <div>Pear</div>
+                <div>Pig</div>
+                <div>Cola</div>
+                <div>Soccer</div>
+            </div>
+            <div>Phone</div>
+            <div>
+                <div>Book</div>
+                <div>School</div>
+            </div>
+        </div>
+        <div>
+            Note
+            <div>
+                Human
+                <div>Code</div>
+                <div>Operate</div>
+                <div>Man</div>
+            </div>
+            <div>
+                Program
+                <div>
+                    Bement
+                    <div>Cat</div>
+                </div>
+                <div>Glass</div>
+            </div>
+        </div>
+        <div>Fish</div>
+    </div>
+</section>
+    
+<script>
+    //兼容浏览器
+    function addEvent(element, event, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(event, handler, false);
+        }
+        else if (element.attachEvent) {
+            element.attachEvent("on" + event, handler);
+        }
+        else {
+            element["on" + event] = handler;
+        }
+    }
+
+    var btns = document.getElementsByTagName("button");
+    var rootNode = document.getElementById("root");
+    var inputs = document.getElementsByTagName("input");
+    var selectedNode = null;
+    var indexBF = 0;
+    var lock = false;
+    var speed = 500;
+
+    //深度优先搜索
+    function traverseDF(node, nodeList) {
+        if(node) {
+            nodeList.push(node);
+            for(var i = 0; i < node.children.length; i++) {
+                traverseDF(node.children[i], nodeList);
+            }
+        }
+    }
+
+    //广度搜索优先
+    function traverseBF(node, nodeList) {
+        if(node) {
+            nodeList.push(node);
+            traverseBF(node.nextElementSibling, nodeList);
+            //注意indexBF++的值，是执行完函数再加1，即第一次的时候node = nodeList[indexBF++]的[]里面的值是0，下一次才是1
+            node = nodeList[indexBF++];
+            traverseBF(node.firstElementChild, nodeList);
+        }
+    }
+
+    //添加结点
+    function addNode(selecedtNode) {
+        var addText = inputs[1].value.trim();
+        if (!selecedtNode) {
+            alert("请选择一个结点");
+            return;
+        }
+        if (!addText) {
+            alert("请输入你要的添加的结点");
+            return;
+        }
+        var newNode = document.createElement("div");
+        newNode.innerHTML = addText;
+        selectedNode.appendChild(newNode);
+        inputs[1].value = "";
+    }
+
+    //删除结点
+    function delNode() {
+        if (!selectedNode) {
+            alert("请选择一个结点");
+            return;
+        }   
+        else {
+            var parentNode = selectedNode.parentNode;
+            parentNode.removeChild(selectedNode);
+            selectedNode = null;
+        }     
+
+    }
+    //判断该执行的事件
+    function traverse(traverseIndex) {
+        var nodeList = [];
+        switch (traverseIndex) {
+            case 0:
+                traverseDF(rootNode, nodeList);
+                break;
+            case 1:
+                indexBF = 0;
+                traverseBF(rootNode, nodeList);
+                break;
+            case 2:
+                var searchText = inputs[0].value.trim();
+                traverseDF(rootNode, nodeList);
+                break;
+            case 3:
+                indexBF = 0;
+                var searchText = inputs[0].value.trim();
+                traverseBF(rootNode, nodeList);
+                break;
+            case 4:
+                addNode(selectedNode);
+                //让新加入来的元素可选
+                selectNode();
+                //结束函数，以免执行下面的traverseRender(nodeList, searchText)
+                return;
+            case 5:
+                delNode();
+                selectNode();
+                return;
+        }
+        traverseRender(nodeList, searchText);
+    }
+
+    //渲染事件
+    function traverseRender(nodeList, searchText) {
+        //用于重置样式
+        resetStyle()
+        var i = 0;
+        var len = nodeList.length;
+        //这是为了先遍历给首个元素，方便后续定时器的去除样式，且用trim()去除值的前后的空格
+        if (nodeList[i].firstChild.nodeValue.trim() == searchText) {
+            nodeList[i].className = "found";
+            lock = false;
+            inputs[0].value = "";
+            //如果第一个就找到，那么停止执行函数，以免后续触发定时器
+            return;
+        }
+        else {
+            nodeList[i].className = "active";
+            lock = true;
+        }
+        var timer = setInterval(function () {
+            //这个要len-1，因为后面是i+1,注意逻辑关系
+            if (i < len-1) {
+                nodeList[i].className = "";
+                if (nodeList[i+1].firstChild.nodeValue.trim() == searchText) {
+                    nodeList[i+1].className = "found";
+                    clearInterval(timer);
+                    lock = false;
+                    inputs[0].value = "";
+                }
+                else {
+                    nodeList[i+1].className = "active";
+                    lock = true;
+                }
+                i++;
+            }
+            else {
+                nodeList[i].className = "";
+                clearInterval(timer);
+                lock = false;
+            }
+        }, speed);
+    }
+
+    //选择结点
+    function selectNode() {
+        var nodeList = [];
+        traverseDF(rootNode, nodeList);
+        for (var i = 0; i < nodeList.length; i++) {
+            (function(i) {
+                addEvent(nodeList[i], "click", function(event) {
+                    var event = event || window.event;
+                    //取消冒泡，才能精准选择到结点
+                    event.stopPropagation();
+                    resetStyle();
+                    nodeList[i].className = "selected";
+                    selectedNode = nodeList[i];   
+                })
+            }(i));
+        }
+    }
+
+    //重置默认样式 
+    function resetStyle() {
+        var nodeList = [];
+        traverseDF(rootNode, nodeList);
+        for (var i = 0; i < nodeList.length; i++) {
+            nodeList[i].className = "";
+        }
+    }
+    //绑定按钮事件,注意闭包的使用
+    function init() {
+        for (var i = 0; i < btns.length; i++) {
+            (function (i) {
+                addEvent(btns[i], "click", function () {
+                    if (lock == true) {
+                        alert("我还在遍历中呢");
+                    }
+                    else {
+                        traverse(i);
+                    }
+                })
+            }(i))
+        }
+    }
+
+    init();
+    selectNode();
+</script>
+</body>
+</html>

@@ -1,155 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>task_22</title>
-	<style>
-		.root {
-			display: flex;
-			padding: 20px;
-			width: 1000px;
-			height: 300px;
-			border: 1px solid #000;
-			margin: 100px auto;
-			margin-bottom: 10px;
-			justify-content: space-between;
-		}
-		.child_1 {
-			display: flex;
-			padding: 20px;
-			width: 450px;
-			height: 260px;
-			border: 1px solid red;
-			justify-content: space-between;
-		}
-		.child_2 {
-			display: flex;
-			padding: 20px;
-			width: 170px;
-			height: 220px;
-			border: 1px solid green;
-			justify-content: space-between;
-		}
-		.child_3 {
-			display: flex;
-			padding: 20px;
-			width: 35px;
-			height: 180px;
-			border: 1px solid blue;
-			justify-content: space-between;
-		}
-		input {
-			margin-left: 100px;
-			width: 50px;
-			height: 40px;
-			font-size: 40px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Task-2-25</title>
+    <style type="text/css">
+        html, body {
+            width: 60%;
+            height: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        button {
+            border:0;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+            padding: 4px;
+            margin:20px 5px;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        button:active {
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        div {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #000;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .noshow>div{
+            display: none;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            width: 1em;
+            line-height: 1;
+            border: 1px solid black;
+            text-align: center;
+            margin: 0 6px 0 0;
+            float: left;
+        }
+
+        .selected{
+            background-color: rgb(210,210,210);
+        }
+        .default{
+            background-color: #fff;
+            color: black;
+        }
+        .active {
+            background-color: blue;
+            color: #fff;
+        }
+        .found {
+            background-color: red;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-	<div class="root">
-		<div class="child_1">
-			<div class="child_2">
-				<div class="child_3"></div>
-				<div class="child_3"></div>
-			</div>
-			<div class="child_2">
-				<div class="child_3"></div>
-				<div class="child_3"></div>
-			</div>
-		</div>
-		<div class="child_1">
-			<div class="child_2">
-				<div class="child_3"></div>
-				<div class="child_3"></div>
-			</div>
-			<div class="child_2">
-				<div class="child_3"></div>
-				<div class="child_3"></div>
-			</div>
-		</div>
-	</div>
-	<input type="button" value="前序">
-	<input type="button" value="中序">
-	<input type="button" value="后序">
+<input />
+<button>深度优先搜索</button>
+<input />
+<button>添加节点</button>
+<button>删除节点</button>
+<section>
+    <div id="root">
+        产品<a class="display" href="javascript:;">-</a>
+        <div class="noshow">手机<a class="display" href="javascript:;">+</a>
+            <div>Apple<a class="display" href="javascript:;">-</a>
+                <div>iphone4s</div>
+                <div>iphone5s</div>
+                <div>iphone6s</div>
+                <div>iphone6Plus</div>
+            </div>
+            <div>Samsung<a class="display" href="javascript:;">-</a></div>
+            <div>Xiaomi<a class="display" href="javascript:;">-</a></div>
+        </div>
+        <div class="noshow">电脑<a class="display" href="javascript:;">+</a>
+            <div>PC<a class="display" href="javascript:;">-</a></div>
+            <div>NoteBook<a class="display" href="javascript:;">-</a></div>
+            <div>SoftWare<a class="display" href="javascript:;">-</a></div>
+        </div>
+        <div class="noshow">家电<a class="display" href="javascript:;">+</a>
+            <div>电视<a class="display" href="javascript:;">-</a></div>
+            <div>冰箱<a class="display" href="javascript:;">-</a></div>
+            <div>空调<a class="display" href="javascript:;">-</a></div>
+        </div>
+    </div>
+</section>
+
 <script>
-    var btn = document.getElementsByTagName('input'),
-        preBtn = btn[0],
-        inBtn = btn[1],
-        postBtn = btn[2],
-        treeRoot = document.getElementsByClassName('root')[0],
-        divList = [],
-        timer = null;
-    window.onload = function (){
-        preBtn.onclick = function () {
-            reset();
-            preOrder(treeRoot);
-            changeColor();
-        }
-        inBtn.onclick = function () {
-            reset();
-            inOrder(treeRoot);
-            changeColor();
-        }
-        postBtn.onclick = function () {
-            reset();
-            postOrder(treeRoot);
-            changeColor();
-        }
-    }
+    var timer = null;
+    var oBtns = document.getElementsByTagName("button");
+    var rootNode = document.getElementById("root");
+    var oA = document.getElementsByTagName("a");
+    var selectedNode = null; // 被选中的元素节点
+    var lock = false;
+    var BFindex = 0;//广度优先遍历自增标识符
+    var aFlag = [];
 
-    //前序遍历
-    function preOrder(node) {
-        if (!(node == null)) {
-            divList.push(node);
-            preOrder(node.firstElementChild);
-            preOrder(node.lastElementChild);
-        }
-    }
 
-    //中序遍历
-    function inOrder(node) {
-        if (!(node == null)) {
-            inOrder(node.firstElementChild);
-            divList.push(node);
-            inOrder(node.lastElementChild);
-        }
-    }
-
-    //后序遍历
-    function postOrder(node) {
-        if (!(node == null)) {
-            postOrder(node.firstElementChild);
-            postOrder(node.lastElementChild);
-            divList.push(node);
-        }
-    }
-
-    //颜色变化函数
-    function changeColor() {
-        var i = 0;
-        divList[i].style.backgroundColor = 'blue'
-        timer = setInterval(function (argument) {
-            i++;
-            if (i < divList.length) {
-                divList[i-1].style.backgroundColor = '#fff';
-                divList[i].style.backgroundColor = 'blue';
-            } else {
-                clearInterval(timer);
-                divList[divList.length-1].style.backgroundColor = '#fff';
+    // 深度优先遍历
+    function traverseDF(node,nodeList){
+        if(node && node.className!=="display"){
+            nodeList.push(node);
+            for(var i=0;i<node.children.length;i++){
+                traverseDF(node.children[i],nodeList);
             }
-        },500)
-    }
-
-    //初始化样式
-    function reset() {
-        divList = [];
-        clearInterval(timer);
-        var divs = document.getElementsByTagName('div');
-        for (var i = 0; i < divs.length; i++) {
-            divs[i].style.backgroundColor = '#fff';
         }
     }
+
+
+    //渲染动画，有文本传入则可执行搜索
+    function traverseRender(nodeList,foundText){
+        var i = 0;
+        var len = nodeList.length;
+        var aList = document.getElementsByTagName("a");
+        displayNodes(nodeList[1],true);
+        if (nodeList[i].firstChild.nodeValue.replace(/(^\s*)|(\s*$)/g, "") == foundText) {
+            nodeList[i].className = "found";
+            lock = false;
+            clearInterval(timer);
+        } else {
+            nodeList[i++].className = "active";
+        }
+        lock = true;
+        timer = setInterval(function(){
+            if(i<len){
+                nodeList[i-1].className = "";
+                if(nodeList[i].firstChild.nodeValue.replace(/(^\s*)|(\s*$)/g, "") == foundText){
+                    nodeList[i].className = "found";
+                    lock = false;
+                    clearInterval(timer);
+                }
+                else{
+                    nodeList[i++].className = "active";
+                }
+            }
+            else{
+                nodeList[i-1].className = "";
+                lock = false;
+                clearInterval(timer);
+            }
+            displayNodes(nodeList[i],true);
+        },300);
+    }
+
+    // 添加节点
+    function appendNode(parentNode){
+        var text = document.getElementsByTagName("input")[1].value;
+        if(!parentNode){
+            alert("请先选中一个节点！");
+            return;
+        }
+        else if(text==""){
+            alert("不允许添加空节点！");
+            return;
+        }
+        var oDiv = document.createElement("div");
+        oDiv.innerHTML = text + "<a class=\"display\" href=\"javascript:\;\">+</a>";
+        parentNode.appendChild(oDiv);
+    }
+
+    // 删除选中节点
+    function removeNode(removeNode){
+        if(!removeNode){
+            alert("请先选中一个节点！");
+            return;
+        }
+        var parentNode = removeNode.parentNode;
+        parentNode.removeChild(removeNode);
+        selectedNode = null;
+    }
+
+
+    function traverse(traverseIndex){
+        var Nodelist = [];
+        var foundList = [];
+        switch(traverseIndex){
+            case 0:var foundText = document.getElementsByTagName("input")[0].value;
+                traverseDF(rootNode,Nodelist);
+                break;
+            case 1:appendNode(selectedNode);
+                bindDivs();
+                bindA();
+                return;
+                break;
+            case 2:removeNode(selectedNode);
+                bindDivs();
+                bindA();
+                return;
+                break;
+            default:
+        }
+        resetBG();
+        setTimeout(traverseRender(Nodelist,foundText),300);
+    }
+
+    function bindBtns() {
+        for (var i = 0; i < oBtns.length; i++) {
+            (function(i) {
+                oBtns[i].onclick = function() {
+                    if (lock === true) {
+                        alert("正在遍历中!");
+                    } else {
+                        traverse(i);
+                    }
+                };
+            }(i));
+        }
+    }
+
+    function bindDivs() {
+        var nodeList = [];
+        traverseDF(rootNode,nodeList);
+        for(var i=0;i<nodeList.length;i++){
+            (function(i){
+                nodeList[i].onclick = function(e){
+                    var e = e || window.e;
+                    resetBG();
+                    nodeList[i].className = "selected";
+                    selectedNode = nodeList[i];
+                    e.stopPropagation();
+                };
+            }(i));
+        }
+    }
+
+
+    function bindA() {
+        for (var i = 0; i < oA.length; i++) {
+            aFlag[i] = false;
+            aFlag[0] = true;
+            (function(i) {
+                oA[i].onclick = function(e) {
+                    if (aFlag[i]) {
+                        oA[i].innerHTML = "+";
+                        aFlag[i] = false;
+                        displayNodes(oA[i]);
+                    } else {
+                        oA[i].innerHTML = "-";
+                        aFlag[i] = true;
+                        displayNodes(oA[i])
+                    }
+                    e.stopPropagation();
+                };
+            }(i));
+        }
+    }
+
+
+
+    function displayNodes(childNode, spread) {
+        var parentNode = childNode.parentNode;
+        var oDivs = parentNode.getElementsByTagName("div");
+        var nextSiblingsList = [];
+        nextSiblings(childNode, nextSiblingsList);
+        if (spread) {
+            for(var i=0;i<nextSiblingsList.length;i++){
+                nextSiblingsList[i].style.display = "block";
+                aFlag[i] = true;
+                oA[i].innerHTML = "-";
+            }
+        } else {
+            for (var j = 0; j < oDivs.length; j++) {
+                if (window.getComputedStyle(oDivs[j], null)["display"] == "block") {
+                    oDivs[j].style.display = "none";
+                } else {
+                    oDivs[j].style.display = "block";
+                }
+            }
+        }
+
+    }
+    function nextSiblings(node,list){
+        if(node){
+            list.push(node);
+            nextSiblings(node.nextElementSibling,list)
+        }
+    }
+
+    // 初始化
+    function init(){
+        bindBtns();
+        bindDivs();
+        bindA();
+    }
+
+    // 重置所有节点样式
+    function resetBG(){
+        var nodeList = [];
+        traverseDF(rootNode,nodeList);
+        for(var i=0;i<nodeList.length;i++){
+            nodeList[i].className += " default";
+        }
+    }
+
+    init();
 </script>
 </body>
 </html>
